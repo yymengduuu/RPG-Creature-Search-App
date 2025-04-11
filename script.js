@@ -35,10 +35,13 @@ const displayPokemonInfo = (data) => {
 
   const typesContainer = document.getElementById("types");
 typesContainer.innerHTML = ""; 
-data.types.forEach(el => {
+data.types.forEach((el, index) => {
   const typeSpan = document.createElement("span");
   typeSpan.textContent = el.name.toUpperCase();
   typesContainer.appendChild(typeSpan);
+  if (index < data.types.length - 1) {
+    typesContainer.appendChild(document.createTextNode(", "));
+  }
 });
   
   data.stats.forEach(stat=>{
